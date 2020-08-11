@@ -25,12 +25,13 @@
         </form>
         <hr>
         
-        <% var i=0; %>
+        <!-- On verifie qu'il existe des fichiers -->
         <% if(files){ %>
             
             <div class="tile is-ancestor">
                 <div class="tile is-4 is-vertical is-parent">
-            <% files.forEach(function(file){ i++;%>
+                    <!-- On boucle la liste des images-->
+            <% files.forEach(function(file){%>
                 
                     <% if(file.isImage){ %>
 
