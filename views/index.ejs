@@ -12,7 +12,7 @@
         <form action="/upload" method="POST" enctype="multipart/form-data">
             <div class="file">
                 <label class="file-label">
-                  <input class="file-input" type="file" name="resume" multiple>
+                  <input class="file-input" type="file" name="file" multiple>
                   <span class="file-cta"><span class="file-icon"><i class="fas fa-upload"></i></span>
                   <span class="file-label">
                     Selectionner une image
@@ -23,6 +23,20 @@
 
               <input type="submit" value="Uploader" name="up" id="up" class="button is-primary"/>
         </form>
+        <hr>
+        <% if(files){ %>
+            <% files.forEach(function(file){ %>
+                <div>
+                    <% if(file.isImage){ %>
+                        <img src="image/<%= file.filename %>" alt="" style="height: 200px;width:250px;">
+                    <%} else{%>
+                        <% file.filename %>
+                    <% } %>
+                </div>
+                <% }) %>
+        <% } else{%>
+            Aucun fichier à afficher
+        <%}%>
       
 
     </div>
