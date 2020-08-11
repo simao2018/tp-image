@@ -36,7 +36,9 @@
 
                                   <div class="tile is-child box">
                                     <img src="image/<%= file.filename %>" alt="" style="height: 200px;width:250px;border:1px solid grey;">
-                                    <button type="button" class="button is-danger">Supprimer</button>
+                                    <form action="/files/<%= file._id %>?_method=DELETE" method="post">
+                                        <button class="button is-danger">Supprimer</button>
+                                    </form>
                                   </div>
                         
                     <%} else{%>
