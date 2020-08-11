@@ -24,21 +24,33 @@
               <input type="submit" value="Uploader" name="up" id="up" class="button is-primary"/>
         </form>
         <hr>
+        
+        <% var i=0; %>
         <% if(files){ %>
-            <% files.forEach(function(file){ %>
-                <div>
+            
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-vertical is-parent">
+            <% files.forEach(function(file){ i++;%>
+                
                     <% if(file.isImage){ %>
-                        <img src="image/<%= file.filename %>" alt="" style="height: 200px;width:250px;">
+
+                                  <div class="tile is-child box">
+                                    <img src="image/<%= file.filename %>" alt="" style="height: 200px;width:250px;border:1px solid grey;">
+                                    <button type="button" class="button is-danger">Supprimer</button>
+                                  </div>
+                        
                     <%} else{%>
                         <% file.filename %>
                     <% } %>
-                </div>
+                
                 <% }) %>
+            </div>
+        </div>
         <% } else{%>
             Aucun fichier à afficher
         <%}%>
       
-
+        </div>
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
